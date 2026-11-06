@@ -1,0 +1,12 @@
+{
+  "name": "ministry-on-fire-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ministry on Fire Studio by Kingdom Tools — Faith. Technology. Ministry.",
+  "scripts": {
+    "dev": "node dev-server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

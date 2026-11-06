@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sermon Builder · Ministry on Fire Studio</title>
+  <link rel="icon" href="/assets/flame.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body class="app">
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="/">
+        <img src="/assets/flame.svg" alt="" width="32" height="32">
+        <span><strong>Ministry on Fire</strong><small>Studio by Kingdom Tools</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="/#pricing">Pricing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container builder">
+    <section class="panel form-panel">
+      <p class="eyebrow eyebrow-dark">Sermon Builder</p>
+      <h1>What is God putting on your heart?</h1>
+      <p class="muted">Fill in what you know. Only the scripture is required.</p>
+
+      <form id="sermon-form" novalidate>
+        <label><span>Scripture passage <span class="req">*</span></span>
+          <input name="scripture" required maxlength="120" placeholder="e.g. Isaiah 40:28-31">
+        </label>
+
+        <label>Theme or burden
+          <input name="theme" maxlength="160" placeholder="e.g. Strength for the weary">
+        </label>
+
+        <div class="row">
+          <label>Occasion
+            <select name="occasion">
+              <option>Sunday morning worship</option>
+              <option>Midweek service</option>
+              <option>Youth service</option>
+              <option>Revival</option>
+              <option>Funeral / homegoing</option>
+              <option>Wedding</option>
+              <option>Communion Sunday</option>
+              <option>Women's ministry</option>
+              <option>Men's ministry</option>
+              <option>Special event</option>
+            </select>
+          </label>
+          <label>Length
+            <select name="length">
+              <option value="15">About 15 minutes</option>
+              <option value="30" selected>About 30 minutes</option>
+              <option value="45">About 45 minutes</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="row">
+          <label>Style
+            <select name="style">
+              <option>Expository (verse by verse)</option>
+              <option>Topical</option>
+              <option>Narrative (tell the story)</option>
+              <option>Evangelistic</option>
+              <option>Encouragement</option>
+            </select>
+          </label>
+          <label>Bible translation
+            <select name="translation">
+              <option value="KJV">King James Version (KJV)</option>
+              <option value="WEB">World English Bible (WEB)</option>
+            </select>
+          </label>
+        </div>
+
+        <label><span>Anything else? <span class="muted">(optional)</span></span>
+          <textarea name="notes" rows="3" maxlength="600" placeholder="e.g. Our church just went through a hard season. Close with a call to rededication."></textarea>
+        </label>
+
+        <button class="btn btn-gold btn-block" type="submit" id="submit-btn">Build my sermon</button>
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+      </form>
+    </section>
+
+    <section class="panel result-panel" id="result" aria-live="polite">
+      <div class="empty" id="empty-state">
+        <img src="/assets/flame.svg" alt="" width="56" height="56">
+        <p>Your sermon outline will appear here.</p>
+      </div>
+      <div class="loading" id="loading" hidden>
+        <div class="flicker"><img src="/assets/flame.svg" alt="" width="56" height="56"></div>
+        <p>Preparing your message…</p>
+      </div>
+      <div id="output" hidden></div>
+      <div class="actions" id="actions" hidden>
+        <button class="btn btn-purple btn-sm" type="button" id="copy-btn">Copy</button>
+        <button class="btn btn-ghost-dark btn-sm" type="button" id="download-btn">Download</button>
+        <button class="btn btn-ghost-dark btn-sm" type="button" id="print-btn">Print</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>Always check scripture against your own Bible.</span>
+      <span>Kingdom Tools · Faith. Technology. Ministry.</span>
+    </div>
+  </footer>
+
+  <script src="/assets/sermon.js"></script>
+</body>
+</html>
