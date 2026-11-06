@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New password · Ministry on Fire Studio</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/flame.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body class="app">
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="/">
+        <img src="/assets/flame.svg" alt="" width="32" height="32">
+        <span><strong>Ministry on Fire</strong><small>Studio by Kingdom Tools</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="/#pricing">Pricing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container auth-wrap">
+    <section class="panel">
+      <p class="eyebrow eyebrow-dark">Your Studio account</p>
+      <h1>Choose a new password</h1>
+      <p class="muted" id="reset-sub">Use at least 8 characters.</p>
+
+      <form id="reset-form" novalidate hidden>
+        <label>New password
+          <input name="password" type="password" autocomplete="new-password" required minlength="8" maxlength="72">
+        </label>
+        <label>Type it again
+          <input name="confirm" type="password" autocomplete="new-password" required minlength="8" maxlength="72">
+        </label>
+        <button class="btn btn-gold btn-block" type="submit" id="reset-submit">Save new password</button>
+        <p class="form-error" id="reset-error" role="alert" hidden></p>
+      </form>
+
+      <p class="form-success" id="reset-success" role="status" hidden>Your password is updated. Taking you to your account…</p>
+      <p class="form-error" id="reset-expired" hidden>This reset link has expired or was already used. <a href="/login">Request a new one</a> from the sign-in page.</p>
+      <p class="form-error" id="reset-off" hidden>Accounts are being set up. Check back soon.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© Kingdom Tools · Ministry on Fire Studio</span>
+      <span>Faith. Technology. Ministry.</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/assets/auth.js"></script>
+  <script src="/assets/reset.js"></script>
+</body>
+</html>

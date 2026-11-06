@@ -2,6 +2,8 @@
 // Runs on Vercel's servers, so the AI key never reaches the browser.
 // If ANTHROPIC_API_KEY isn't set, it returns a sample outline (demo mode).
 
+const { getUser, loginRequired } = require('./_auth');
+
 const ALLOWED_TRANSLATIONS = ['KJV', 'WEB'];
 const TRANSLATION_NAMES = { KJV: 'King James Version', WEB: 'World English Bible' };
 const LIMITS = { scripture: 120, theme: 160, occasion: 60, style: 60, notes: 600 };
@@ -172,6 +174,13 @@ async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ error: 'Use POST.' });
+  }
+
+  if (loginRequired()) {
+    const user = await getUser(req);
+    if (!user) {
+      return res.status(401).json({ error: 'Please sign in to build a sermon.', needsLogin: true });
+    }
   }
 
   const input = readInput(req.body);

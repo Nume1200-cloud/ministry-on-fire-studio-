@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in · Ministry on Fire Studio</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/flame.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body class="app">
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="/">
+        <img src="/assets/flame.svg" alt="" width="32" height="32">
+        <span><strong>Ministry on Fire</strong><small>Studio by Kingdom Tools</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="/#pricing">Pricing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container auth-wrap">
+    <section class="panel">
+      <p class="eyebrow eyebrow-dark">Your Studio account</p>
+      <h1 id="auth-title">Welcome back</h1>
+      <p class="muted" id="auth-sub">Sign in to build, save and return to your messages.</p>
+
+      <div class="tabs" role="tablist" id="tabs">
+        <button type="button" role="tab" aria-selected="true" data-mode="signin">Sign in</button>
+        <button type="button" role="tab" aria-selected="false" data-mode="signup">Create account</button>
+      </div>
+
+      <form id="auth-form" novalidate>
+        <label id="name-field" hidden>Your name <span class="hint">(optional)</span>
+          <input name="full_name" autocomplete="name" maxlength="80" placeholder="e.g. Pastor Marcus Hill">
+        </label>
+        <label>Email
+          <input name="email" type="email" autocomplete="email" required maxlength="200" placeholder="you@church.org">
+        </label>
+        <label id="password-field">Password
+          <input name="password" type="password" autocomplete="current-password" required minlength="8" maxlength="72">
+          <span class="hint" id="password-hint" hidden>At least 8 characters.</span>
+        </label>
+
+        <button class="btn btn-gold btn-block" type="submit" id="auth-submit">Sign in</button>
+        <button class="text-btn" type="button" id="forgot-btn">Forgot your password?</button>
+        <button class="text-btn" type="button" id="back-btn" hidden>← Back to sign in</button>
+
+        <p class="form-error" id="auth-error" role="alert" hidden></p>
+        <p class="form-success" id="auth-success" role="status" hidden></p>
+      </form>
+
+      <p class="form-error" id="auth-off" hidden>Accounts are being set up. You can still <a href="/sermon">try the Sermon Builder</a> without signing in.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© Kingdom Tools · Ministry on Fire Studio</span>
+      <span>Faith. Technology. Ministry.</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/assets/auth.js"></script>
+  <script src="/assets/login.js"></script>
+</body>
+</html>

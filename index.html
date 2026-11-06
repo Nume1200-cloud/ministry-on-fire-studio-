@@ -21,6 +21,7 @@
       <nav class="nav-links" aria-label="Main">
         <a href="#tools">Tools</a>
         <a href="#pricing">Pricing</a>
+        <a class="nav-auth" href="/login" data-auth-link hidden>Sign in</a>
         <a class="btn btn-gold btn-sm" href="/sermon">Try it free</a>
       </nav>
     </div>
@@ -36,7 +37,7 @@
           <a class="btn btn-gold" href="/sermon">Build a sermon now</a>
           <a class="btn btn-ghost" href="#pricing">See plans</a>
         </div>
-        <p class="fine">No account needed to try it. Free plan includes 3 generations a month.</p>
+        <p class="fine">Try it free. Free plan includes 3 generations a month.</p>
       </div>
     </section>
 
@@ -156,6 +157,8 @@
       <span>Faith. Technology. Ministry.</span>
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/assets/auth.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

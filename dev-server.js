@@ -17,8 +17,9 @@ function vercelStyle(res) {
 http.createServer((req, res) => {
   const url = new URL(req.url, 'http://localhost');
   if (url.pathname.startsWith('/api/')) {
-    const file = path.join(root, 'api', path.basename(url.pathname) + '.js');
-    if (!fs.existsSync(file)) { res.statusCode = 404; return res.end('Not found'); }
+    const name = path.basename(url.pathname);
+    const file = path.join(root, 'api', name + '.js');
+    if (name.startsWith('_') || !fs.existsSync(file)) { res.statusCode = 404; return res.end('Not found'); }
     let body = '';
     req.on('data', (c) => (body += c));
     req.on('end', () => {

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My account · Ministry on Fire Studio</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/flame.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body class="app">
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="/">
+        <img src="/assets/flame.svg" alt="" width="32" height="32">
+        <span><strong>Ministry on Fire</strong><small>Studio by Kingdom Tools</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="/">Home</a>
+        <a class="btn btn-gold btn-sm" href="/sermon">New sermon</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="loading" id="account-loading" style="padding:4rem 0">
+      <div class="flicker"><img src="/assets/flame.svg" alt="" width="56" height="56"></div>
+      <p>Opening your Studio…</p>
+    </div>
+
+    <div class="account-grid" id="account" hidden>
+      <section class="panel">
+        <p class="eyebrow eyebrow-dark">My Studio</p>
+        <h1 id="greeting">Welcome</h1>
+        <p class="muted">Pick a tool and let's get to work.</p>
+        <ul class="tool-list">
+          <li><a href="/sermon">Sermon Builder <small>Open →</small></a></li>
+          <li><span>Bible Study Builder <small>Coming soon</small></span></li>
+          <li><span>Prayer Builder <small>Coming soon</small></span></li>
+          <li><span>Saved Library <small>Coming soon</small></span></li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <p class="eyebrow eyebrow-dark">Account</p>
+        <dl class="kv">
+          <dt>Email</dt><dd id="acct-email">—</dd>
+          <dt>Plan</dt><dd><span class="plan-badge">Free · 3 generations a month</span></dd>
+          <dt>Member since</dt><dd id="acct-since">—</dd>
+        </dl>
+        <p class="muted" style="font-size:.88rem">Plus and Pro plans are coming soon.</p>
+        <div class="actions">
+          <a class="btn btn-ghost-dark btn-sm" href="/reset">Change password</a>
+          <button class="btn btn-purple btn-sm" type="button" id="signout-btn">Sign out</button>
+        </div>
+      </section>
+    </div>
+
+    <p class="form-error" id="account-off" hidden style="margin:3rem 0">Accounts are being set up. Check back soon, or <a href="/sermon">try the Sermon Builder</a>.</p>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© Kingdom Tools · Ministry on Fire Studio</span>
+      <span>Faith. Technology. Ministry.</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/assets/auth.js"></script>
+  <script src="/assets/account.js"></script>
+</body>
+</html>

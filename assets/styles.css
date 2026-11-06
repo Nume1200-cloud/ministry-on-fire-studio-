@@ -50,6 +50,7 @@ p { margin: 0 0 1em; }
 .brand small { color: var(--gold-light); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
 .nav-links { display: flex; align-items: center; gap: 1rem; font-size: .92rem; }
 .nav-links a:not(.btn) { text-decoration: none; opacity: .85; display: none; }
+.nav-links a.nav-auth { display: inline; font-weight: 600; opacity: 1; }
 .nav-links a:not(.btn):hover { opacity: 1; color: var(--gold-light); }
 
 /* Buttons */
@@ -61,7 +62,7 @@ p { margin: 0 0 1em; }
 }
 .btn:hover:not(:disabled) { transform: translateY(-1px); }
 .btn:disabled { opacity: .55; cursor: not-allowed; }
-.btn-sm { padding: .5rem 1rem; font-size: .9rem; }
+.btn-sm { white-space: nowrap;  padding: .5rem 1rem; font-size: .9rem; }
 .btn-block { width: 100%; }
 .btn-gold { background: linear-gradient(180deg, var(--gold-light), var(--gold)); color: var(--purple-950); box-shadow: 0 6px 18px rgba(212,164,55,.35); }
 .btn-purple { background: var(--purple-700); color: var(--white); }
@@ -166,6 +167,28 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--p
 .sermon .raw { white-space: pre-wrap; }
 .actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
 
+/* Accounts: sign in, create account, reset password, dashboard */
+[hidden] { display: none !important; }
+.auth-wrap { max-width: 460px; margin: 0 auto; padding: 2rem 0 3rem; }
+.auth-wrap h1 { font-size: clamp(1.9rem, 6vw, 2.4rem); }
+.tabs { display: grid; grid-template-columns: 1fr 1fr; gap: .3rem; background: var(--purple-100); padding: .3rem; border-radius: 999px; margin-top: 1rem; }
+.tabs button { font: 600 .92rem var(--sans); border: 0; background: transparent; color: var(--purple-700); padding: .6rem; border-radius: 999px; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--white); box-shadow: 0 2px 8px rgba(30,11,54,.12); }
+.text-btn { background: none; border: 0; padding: 0; font: 500 .92rem var(--sans); color: var(--purple-500); text-decoration: underline; cursor: pointer; justify-self: start; }
+.form-success { color: #1d5e33; background: #e8f6ec; padding: .7rem 1rem; border-radius: 8px; margin: 0; font-size: .92rem; }
+.hint { font-weight: 400; font-size: .82rem; color: var(--muted); }
+.account-grid { display: grid; gap: 1.2rem; padding: 2rem 0 3rem; }
+.account-grid h1 { font-size: clamp(1.9rem, 6vw, 2.5rem); }
+.plan-badge { display: inline-block; background: var(--purple-100); color: var(--purple-700); font-weight: 600; font-size: .85rem; padding: .3rem .8rem; border-radius: 999px; }
+.kv { display: grid; gap: .2rem; margin: 1rem 0; }
+.kv dt { font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gold-dark); font-weight: 600; }
+.kv dd { margin: 0 0 .6rem; }
+.tool-list { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: .6rem; }
+.tool-list a, .tool-list span { display: flex; justify-content: space-between; align-items: center; padding: .9rem 1rem; border: 1.5px solid var(--line); border-radius: 10px; text-decoration: none; color: var(--ink); font-weight: 600; }
+.tool-list a:hover { border-color: var(--purple-500); }
+.tool-list span { color: var(--muted); }
+.tool-list small { font-weight: 500; color: var(--gold-dark); }
+
 /* Larger screens */
 @media (min-width: 640px) {
   .hero-ctas { flex-direction: row; justify-content: center; }
@@ -183,6 +206,7 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--p
   .builder { grid-template-columns: minmax(340px, 420px) 1fr; align-items: start; padding-top: 2.5rem; }
   .form-panel { position: sticky; top: 5.5rem; }
   .panel { padding: 2rem; }
+  .account-grid { grid-template-columns: 1.4fr 1fr; align-items: start; padding-top: 2.5rem; }
 }
 
 /* Print just the sermon */

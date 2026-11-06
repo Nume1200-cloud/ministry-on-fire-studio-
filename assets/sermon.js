@@ -41,12 +41,17 @@
     if (window.innerWidth < 900) document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
 
     try {
+      const headers = window.MOF ? await window.MOF.authHeaders({ 'Content-Type': 'application/json' }) : { 'Content-Type': 'application/json' };
       const res = await fetch('/api/sermon', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify(data)
       });
       const body = await res.json().catch(() => ({}));
+      if (res.status === 401 && body.needsLogin) {
+        location.href = '/login?mode=signup&next=/sermon';
+        return;
+      }
       if (!res.ok) throw new Error(body.error || 'Something went wrong. Please try again.');
       lastSermon = body;
       render(body);
@@ -146,4 +151,16 @@
   document.getElementById('print-btn').addEventListener('click', () => window.print());
 
   show('empty');
+
+  // Members-only mode: let people know before they fill in the form.
+  if (window.MOF) {
+    window.MOF.ready.then(async ({ client, config }) => {
+      if (!client || !config.requireLogin) return;
+      if (await window.MOF.getSession()) return;
+      const note = document.createElement('p');
+      note.className = 'demo-banner';
+      note.innerHTML = 'The Sermon Builder is for members. <a href="/login?mode=signup&amp;next=/sermon">Create a free account</a> or <a href="/login?next=/sermon">sign in</a> to start.';
+      form.parentNode.insertBefore(note, form);
+    });
+  }
 })();
