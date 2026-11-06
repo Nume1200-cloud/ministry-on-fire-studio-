@@ -15,7 +15,7 @@
 
   const copy = {
     signin: { title: 'Welcome back', sub: 'Sign in to build, save and return to your messages.', button: 'Sign in' },
-    signup: { title: 'Create your account', sub: 'Free plan includes 3 generations a month. No card needed.', button: 'Create account' },
+    signup: { title: 'Create your account', sub: 'Free plan includes 3 sermon drafts a month. No card needed.', button: 'Create account' },
     forgot: { title: 'Reset your password', sub: "Enter your email and we'll send you a link to choose a new password.", button: 'Send reset link' }
   };
 

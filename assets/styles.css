@@ -215,3 +215,7 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--p
   .app, .panel { background: #fff; box-shadow: none; }
   .builder { display: block; padding: 0; }
 }
+
+.lead-dark { color: var(--muted); font-size: 1.05rem; margin: -.5rem 0 1.5rem; }
+#pricing .note { margin-top: 1.5rem; }
+.plan li em { color: var(--muted); font-style: normal; font-size: .9em; }
